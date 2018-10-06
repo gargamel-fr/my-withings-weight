@@ -1,0 +1,30 @@
+#security:
+#  require-ssl: true
+#  oauth2:
+#    client:
+#      clientId: 688335648203473
+#      clientSecret: cbb744694b86b9ff199816c8551c5735
+#      accessTokenUri: https://graph.facebook.com/oauth/access_token
+#      userAuthorizationUri: https://www.facebook.com/dialog/oauth
+#      tokenName: oauth_token
+#      authenticationScheme: query
+#      clientAuthenticationScheme: form
+#    resource:
+#      userInfoUri: https://graph.facebook.com/me
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: 688335648203473
+            client-secret: cbb744694b86b9ff199816c8551c5735
+
+server:
+  port: 8443
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:keystore.p12
+    key-store-password: t5sp_wm0
+    key-alias: tomcat
