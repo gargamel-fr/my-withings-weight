@@ -25,7 +25,7 @@ spring:
             client-secret: 0942297835a933b5606073950cb0a74c4460cbfe624b36a820f513972bc13a39
             client-name: withings
             scope: user.info
-            redirect-uri-template: https://localhost:8443/login/oauth2/code
+            redirect-uri-template: https://localhost:8443/login/oauth2/code/withings
             authorization-grant-type: authorization_code
         provider:
           withings:
@@ -39,3 +39,7 @@ server:
     key-store: classpath:keystore.p12
     key-store-password: t5sp_wm0
     key-alias: tomcat
+
+logging:
+  level:
+    root: INFO
