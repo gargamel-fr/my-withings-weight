@@ -1,4 +1,4 @@
-package com.wgcorp.mywithingsweight;
+package com.wgcorp.mywithingsweight.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
