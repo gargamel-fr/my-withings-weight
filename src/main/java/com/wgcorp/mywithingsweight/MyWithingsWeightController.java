@@ -18,10 +18,10 @@ public class MyWithingsWeightController {
     private static final Logger LOGGER = LoggerFactory.getLogger(MyWithingsWeightController.class);
 
     @Autowired
-    private OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
+    private OAuth2AuthorizedClientService authorizedClientService;
 
     @GetMapping("/")
-    public ResponseEntity<String> facebookLogin(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
+    public ResponseEntity<String> checklogin(OAuth2AuthenticationToken authentication) {
         LOGGER.info("You are logged!");
         return ResponseEntity.ok("LOGGED");
     }

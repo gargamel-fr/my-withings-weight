@@ -1,3 +1,4 @@
+# facebook provider
 #security:
 #  require-ssl: true
 #  oauth2:
@@ -12,19 +13,35 @@
 #    resource:
 #      userInfoUri: https://graph.facebook.com/me
 
+# custom provider (withings)
 spring:
   security:
     oauth2:
       client:
         registration:
-          facebook:
-            client-id: 688335648203473
-            client-secret: cbb744694b86b9ff199816c8551c5735
+          withings-cli:
+            provider: withings
+            client-id: 7f1a57885228b24dd81d0e11b3672bd7b7d81dff67ce9d5c077a91efbf9dfd70
+            client-secret: 0942297835a933b5606073950cb0a74c4460cbfe624b36a820f513972bc13a39
+            client-name: withings
+            scope: user.info
+            redirect-uri-template: https://localhost:8443/login/oauth2/code/withings
+            authorization-grant-type: authorization_code
+            client-authentication-method: post
+        provider:
+          withings:
+            authorization-uri:  https://account.withings.com/oauth2_user/authorize2
+            token-uri: https://account.withings.com/oauth2/token
+            user-info-uri: https://wbsapi.withings.net/v2/user
 
 server:
   port: 8443
   ssl:
     key-store-type: PKCS12
-    key-store: classpath:keystore.p12
-    key-store-password: t5sp_wm0
+    key-store: classpath:my-keystore.p12
+    key-store-password: azerty
     key-alias: tomcat
+
+logging:
+  level:
+    root: INFO
